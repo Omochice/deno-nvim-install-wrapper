@@ -5,13 +5,13 @@ This is tool for install nvim for me.
 ## Required permissins
 
 - `--allow-env`
-    - For reading some environment variable
+    - For reading some environment variables:
         - `XDG_DATA_HOME`
         - `HOME`
 - `--allow-write`
     - For `Deno.mkdir`
 - `--allow-read`
-    - For
+    - For:
         - `Deno.stat`
         - `Deno.lstatSync`
 - `--allow-run`
@@ -29,11 +29,11 @@ $ deno install --allow-env --allow-write --allow-read --allow-run https://pax.de
 This has some options:
 
 - `--pull-to`
-    - Directory to pull neovim/neovim>
+    - Directory to pull neovim/neovim.
 - `--install-to`
     - Directory to install `nvim`.
 - `--delete`
-    - List of detete plugins after installing>
+    - List of detete plugins after installing.
 - `--verbose`
     - Show raw process output like `git`, `make`.
 
