@@ -26,8 +26,13 @@ if (import.meta.main) {
     .option("--pull-to <pullTo:string>", "", { required: true })
     .option("--install-to <installTo:string>", "", { required: true })
     .option("--delete <deletes:string[]>", "", { default: defaultDeleteFiles })
+    .option("--force", "force install (reclone if exists)", { default: false })
     .option("--verbose", "show raw output", { default: false })
     .parse(Deno.args);
+
+  if (options.force && $.fs.existsSync(options.pullTo)) {
+    Deno.removeSync(options.pullTo, { recursive: true });
+  }
 
   await $.progress("sync with neovim/neovim")
     .with(
