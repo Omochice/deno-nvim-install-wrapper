@@ -36,4 +36,5 @@ This has some options:
     - List of detete plugins after installing.
 - `--verbose`
     - Show raw process output like `git`, `make`.
-
+- `--force`
+    - Force install
