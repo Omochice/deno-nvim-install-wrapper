@@ -1,6 +1,9 @@
 import $ from "https://deno.land/x/dax@0.35.0/mod.ts";
 import { buildNvim, cleanProject, pullRepository } from "./mod.ts";
 import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.2/command/mod.ts";
+import { join } from "https://deno.land/std@0.200.0/path/join.ts";
+import { isAbsolute } from "https://deno.land/std@0.200.0/path/is_absolute.ts";
+import { existsSync } from "https://deno.land/std@0.200.0/fs/exists.ts";
 
 const defaultDeleteFiles = [
   ...[
@@ -15,9 +18,9 @@ const defaultDeleteFiles = [
     "tohtml.vim",
     "tutor.vim",
     "zipPlugin.vim",
-  ].map((e) => $.path.join("share", "plugin", e)),
-  $.path.join("/", "etc", "xdg", "nvim", "sysinit.vim"),
-  $.path.join("/", "usr", "share", "nvim", "archlinux"),
+  ].map((e) => join("share", "plugin", e)),
+  join("/", "etc", "xdg", "nvim", "sysinit.vim"),
+  join("/", "usr", "share", "nvim", "archlinux"),
 ];
 
 if (import.meta.main) {
@@ -30,7 +33,7 @@ if (import.meta.main) {
     .option("--verbose", "show raw output", { default: false })
     .parse(Deno.args);
 
-  if (options.force && $.fs.existsSync(options.pullTo)) {
+  if (options.force && existsSync(options.pullTo)) {
     Deno.removeSync(options.pullTo, { recursive: true });
   }
 
@@ -54,9 +57,9 @@ if (import.meta.main) {
     .with(
       async () => {
         await Promise.all(options.delete.map((path) => {
-          const filePath = $.path.isAbsolute(path)
+          const filePath = isAbsolute(path)
             ? path
-            : $.path.join(options.installTo, path);
+            : join(options.installTo, path);
           try {
             Deno.removeSync(filePath);
           } catch (e: unknown) {
