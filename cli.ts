@@ -3,7 +3,7 @@ import { buildNvim, cleanProject, pullRepository } from "./mod.ts";
 import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.2/command/mod.ts";
 import { join } from "https://deno.land/std@0.200.0/path/join.ts";
 import { isAbsolute } from "https://deno.land/std@0.200.0/path/is_absolute.ts";
-import { existsSync } from "https://deno.land/std@0.200.0/fs/exists_sync.ts";
+import { existsSync } from "https://deno.land/std@0.200.0/fs/exists.ts";
 
 const defaultDeleteFiles = [
   ...[
