@@ -1,8 +1,8 @@
 import $ from "https://deno.land/x/dax@0.35.0/mod.ts";
 import { buildNvim, cleanProject, pullRepository } from "./mod.ts";
 import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.2/command/mod.ts";
-import path from "https://denp.land/std@0.200.0/path/mod.ts";
-import fs from "https://denp.land/std@0.200.0/fs/mod.ts";
+import path from "https://deno.land/std@0.200.0/path/mod.ts";
+import fs from "https://deno.land/std@0.200.0/fs/mod.ts";
 
 const defaultDeleteFiles = [
   ...[
