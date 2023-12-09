@@ -1,6 +1,8 @@
 import $ from "https://deno.land/x/dax@0.35.0/mod.ts";
 import { buildNvim, cleanProject, pullRepository } from "./mod.ts";
 import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.2/command/mod.ts";
+import path from "https://denp.land/std@0.200.0/path/mod.ts";
+import fs from "https://denp.land/std@0.200.0/fs/mod.ts";
 
 const defaultDeleteFiles = [
   ...[
@@ -16,8 +18,8 @@ const defaultDeleteFiles = [
     "tutor.vim",
     "zipPlugin.vim",
   ].map((e) => $.path.join("share", "plugin", e)),
-  $.path.join("/", "etc", "xdg", "nvim", "sysinit.vim"),
-  $.path.join("/", "usr", "share", "nvim", "archlinux"),
+  path.join("/", "etc", "xdg", "nvim", "sysinit.vim"),
+  path.join("/", "usr", "share", "nvim", "archlinux"),
 ];
 
 if (import.meta.main) {
@@ -30,7 +32,7 @@ if (import.meta.main) {
     .option("--verbose", "show raw output", { default: false })
     .parse(Deno.args);
 
-  if (options.force && $.fs.existsSync(options.pullTo)) {
+  if (options.force && fs.existsSync(options.pullTo)) {
     Deno.removeSync(options.pullTo, { recursive: true });
   }
 
