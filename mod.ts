@@ -1,4 +1,4 @@
-import $ from "https://deno.land/x/dax@0.35.0/mod.ts";
+import $ from "https://deno.land/x/dax@0.36.0/mod.ts";
 
 const repository = new URL("https://github.com/neovim/neovim.git");
 
