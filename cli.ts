@@ -1,4 +1,4 @@
-import $ from "https://deno.land/x/dax@0.36.0/mod.ts";
+import $ from "https://deno.land/x/dax@0.39.2/mod.ts";
 import { buildNvim, cleanProject, pullRepository } from "./mod.ts";
 import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.3/command/mod.ts";
 import { join } from "https://deno.land/std@0.218.2/path/join.ts";
