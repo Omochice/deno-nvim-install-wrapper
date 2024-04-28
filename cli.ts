@@ -1,9 +1,9 @@
 import $ from "https://deno.land/x/dax@0.36.0/mod.ts";
 import { buildNvim, cleanProject, pullRepository } from "./mod.ts";
 import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.4/command/mod.ts";
-import { join } from "https://deno.land/std@0.222.1/path/join.ts";
-import { isAbsolute } from "https://deno.land/std@0.222.1/path/is_absolute.ts";
-import { existsSync } from "https://deno.land/std@0.222.1/fs/exists.ts";
+import { join } from "https://deno.land/std@0.224.0/path/join.ts";
+import { isAbsolute } from "https://deno.land/std@0.224.0/path/is_absolute.ts";
+import { existsSync } from "https://deno.land/std@0.224.0/fs/exists.ts";
 
 const defaultDeleteFiles = [
   ...[
